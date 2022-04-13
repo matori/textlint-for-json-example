@@ -1,0 +1,6 @@
+{
+  "name": "textlint-plugin-json",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js"
+}

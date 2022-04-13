@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "json"
+  ],
+  "rules": {
+    "prh": {
+      "rulePaths" :["dic/example.yml"]
+    }
+  }
+}

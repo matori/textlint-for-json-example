@@ -1,0 +1,21 @@
+{
+  "name": "textlint-for-json-example",
+  "version": "1.0.0",
+  "description": "",
+  "author": "matori <pnr.matori@gmail.com> (https://github.com/matori)",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "textlint ./src/example.json"
+  },
+  "devDependencies": {
+    "@humanwhocodes/momoa": "^2.0.3",
+    "@textlint/ast-node-types": "^12.1.1",
+    "@textlint/ast-traverse": "^12.1.1",
+    "prettier": "^2.6.2",
+    "textlint": "^12.1.1",
+    "textlint-plugin-json": "./textlint-plugin-json",
+    "textlint-rule-prh": "^5.3.0"
+  }
+}

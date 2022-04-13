@@ -1,0 +1,18 @@
+# prh version
+version: 1
+rules:
+  - pattern: /ウオーター?/
+    expected: ウォーター
+    prh: 「wo」と発音するものは「ウォ」と表記します。
+
+  - pattern: /ウォータ(?!ー)/
+    expected: ウォーター
+    prh: 「-er」で終わるものは長音符をつけて表記します。
+
+  - patterns: /サーバ(?!ー)/
+    expected: サーバー
+    prh: 「-er」で終わるものは長音符をつけて表記します。
+
+  - pattern: /サーヴァー?/
+    expected: サーバー
+    prh: 「ヴァヴィヴヴェヴォ」は「バビブベボ」で表記します。
