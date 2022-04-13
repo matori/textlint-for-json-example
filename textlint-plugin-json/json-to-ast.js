@@ -28,7 +28,6 @@ exports.parse = function (text) {
     raw: text,
   };
 
-  delete AST.body;
   const children = [];
 
   let prevNode;
@@ -68,12 +67,12 @@ function createParagraphNode(stringNode) {
     range: stringNode.range,
     children: createParagraphChildNodes(stringNode.value, loc, stringNode.range),
   };
-  delete paragraph.value;
+
   return paragraph;
 }
 
 function createParagraphChildNodes(raw, loc, range) {
-  const split = raw.split(/(\r\n|\r|\n)/);
+  const split = raw.split((/(\r\n|\r|\n)/));
   const filtered = split.filter((text) => text.length);
   const initialAcc = {
     relativeStart: 1,
@@ -101,7 +100,7 @@ function paragraphChildrenReducer(loc, range, acc, text) {
     },
     range: [rangeStart, rangeStart + text.length],
   };
-  if (/\r\n|\r|\n/i.test(text)) {
+  if (/\r\n|\r|\n/.test(text)) {
     node.type = ASTNodeTypes.Break;
   } else {
     node.type = ASTNodeTypes.Str;
