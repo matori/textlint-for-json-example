@@ -101,12 +101,17 @@ function paragraphChildrenReducer(loc, range, acc, text) {
     range: [rangeStart, rangeStart + text.length],
   };
   if (/\r\n|\r|\n/.test(text)) {
+    // 改行コードは \r や \n が1文字と判定されてしまうが、実際のJSONでは2文字
+    // text.length をそのまま渡すとバグるので、ここで調整する
+    const textLength = text.length * 2;
     node.type = ASTNodeTypes.Break;
+    acc.relativeStart = acc.relativeStart + textLength;
+
   } else {
     node.type = ASTNodeTypes.Str;
     node.value = text;
+    acc.relativeStart = acc.relativeStart + text.length;
   }
-  acc.relativeStart = acc.relativeStart + text.length;
   acc.children.push(node);
   return acc;
 }
